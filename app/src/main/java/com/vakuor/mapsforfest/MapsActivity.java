@@ -33,12 +33,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        btnActTwo = (Button) findViewById(R.id.btnActTwo);
-        btnActTwo.setOnClickListener(this);
+//        btnActTwo = (Button) findViewById(R.id.btnActTwo);
+//        btnActTwo.setOnClickListener(this);
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.hide(mapFragment).commit();
+//        ft.hide(mapFragment).commit();
     }
 
 
@@ -65,9 +65,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.btnActTwo:
-                // TODO Call second activity
-                break;
+//            case R.id.btnActTwo:
+//                // TODO Call second activity
+//                break;
             default:
                 break;
         }

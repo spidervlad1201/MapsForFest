@@ -14,18 +14,18 @@ public class ButtonsActivity extends AppCompatActivity implements OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-        btnActTwo = (Button) findViewById(R.id.btnActTwo);
-        btnActTwo.setOnClickListener(this);
+//        btnActTwo = (Button) findViewById(R.id.btnActTwo);
+//        btnActTwo.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btnActTwo:
+//        switch (v.getId()) {
+//            case R.id.btnActTwo:
                 // TODO Call second activity
-                break;
-            default:
-                break;
-        }
+//                break;
+//            default:
+//                break;
+//        }
     }
 }
