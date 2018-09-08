@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MapsActivity"
-    >
+    tools:context=".MapsActivity">
+
+
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"
@@ -19,77 +22,105 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:orientation="vertical"
         class="com.google.android.gms.maps.SupportMapFragment"
+
         />
-    <RadioGroup
-        android:id="@+id/radio_group_list_selector"
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal"
-        android:background="#80000000"
-        android:padding="4dp" >
-
-        <RadioButton
-            android:id="@+id/radioPopular"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:text="@string/Popular"
-            android:gravity="center_horizontal|center_vertical"
-            android:layout_weight="1"
-            android:background="@drawable/ic_launcher_background"
-            android:textColor="@color/common_google_signin_btn_text_dark"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:itemBackground="@color/colorPrimary"
+        app:itemIconTint="@drawable/nav_item_color_state"
+        app:itemTextColor="@drawable/nav_item_color_state"
+        app:menu="@menu/bottom_navigation_main"
         />
+    <!--<RadioGroup-->
+        <!--android:id="@+id/radio_group_list_selector"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="48dp"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:background="#80000000"-->
+        <!--android:padding="4dp" >-->
 
-        <View
-            android:id="@+id/VerticalLine"
-            android:layout_width="1dip"
-            android:layout_height="match_parent"
-            android:background="#aaa"/>
-        <RadioButton
-            android:id="@+id/radioAZ"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="two"
-            android:layout_weight="1"
-            android:background="@drawable/common_google_signin_btn_icon_dark"
-            android:textColor="@color/common_google_signin_btn_text_dark" />
+        <!--<RadioButton-->
+            <!--android:id="@+id/radioPopular"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:text="@string/Popular"-->
+            <!--android:gravity="center_horizontal|center_vertical"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@drawable/ic_launcher_background"-->
+            <!--android:textColor="@color/common_google_signin_btn_text_dark"-->
+        <!--/>-->
 
-        <View
-            android:id="@+id/VerticalLine"
-            android:layout_width="1dip"
-            android:layout_height="match_parent"
-            android:background="#aaa" />
+        <!--<View-->
+            <!--android:id="@+id/VerticalLine"-->
+            <!--android:layout_width="1dip"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#aaa"/>-->
+        <!--<RadioButton-->
+            <!--android:id="@+id/radioAZ"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center_horizontal|center_vertical"-->
+            <!--android:text="two"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@drawable/common_google_signin_btn_icon_dark"-->
+            <!--android:textColor="@color/common_google_signin_btn_text_dark" />-->
 
-        <RadioButton
-            android:id="@+id/radioCategory"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="third"
-            android:layout_weight="1"
-            android:background="@drawable/common_google_signin_btn_icon_light"
-            android:textColor="@color/common_google_signin_btn_text_light" />
-        <View
-            android:id="@+id/VerticalLine"
-            android:layout_width="1dip"
-            android:layout_height="match_parent"
-            android:background="#aaa" />
+        <!--<View-->
+            <!--android:id="@+id/VerticalLine"-->
+            <!--android:layout_width="1dip"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#aaa" />-->
 
-        <RadioButton
-            android:id="@+id/radioNearBy"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="4th"
-            android:layout_weight="1"
-            android:background="@drawable/common_google_signin_btn_text_light"
-            android:textColor="@color/common_google_signin_btn_text_light_default" />
+        <!--<RadioButton-->
+            <!--android:id="@+id/radioCategory"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center_horizontal|center_vertical"-->
+            <!--android:text="third"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@drawable/common_google_signin_btn_icon_light"-->
+            <!--android:textColor="@color/common_google_signin_btn_text_light" />-->
+        <!--<View-->
+            <!--android:id="@+id/VerticalLine"-->
+            <!--android:layout_width="1dip"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#aaa" />-->
 
-    </RadioGroup>
+        <!--<RadioButton-->
+            <!--android:id="@+id/radioNearBy"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center_horizontal|center_vertical"-->
+            <!--android:text="4th"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@drawable/common_google_signin_btn_text_light"-->
+            <!--android:textColor="@color/common_google_signin_btn_text_light_default" />-->
+
+    <!--</RadioGroup>-->
     <!--<Button-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:text="Go to Activity Two"-->
         <!--android:id="@+id/btnActTwo">-->
     <!--</Button>-->
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.androidsample.BottomSheetActivity">
+
+        <!-- подключение элемента app bar -->
+        <!--<include layout="@layout/app_bar" />-->
+
+        <!-- подключение основного контента -->
+        <!--<include layout="@layout/activity_bottom_sheet_content" />-->
+
+        <!-- подключение нижнего экрана -->
+        <include layout="@layout/bottom_sheet" />
+    </android.support.design.widget.CoordinatorLayout>
 </FrameLayout>

@@ -2,4 +2,6 @@
     <string name="app_name">MapsForFest</string>
     <string name="title_activity_maps">Map</string>
     <string name="Popular">POPULAR</string>
+    <string name="bottom_sheet_peek">POPULAR</string>
+    <string name="bottom_sheet_content">POPULAR</string>
 </resources>
