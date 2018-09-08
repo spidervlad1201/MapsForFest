@@ -13,6 +13,7 @@
     app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
 
     <TextView
+        android:id="@+id/firstText"
        android:layout_width="match_parent"
        android:layout_height="80dp"
        android:background="@color/colorAccent"
@@ -21,11 +22,35 @@
        android:textColor="@android:color/white" />
 
     <TextView
+        android:id="@+id/secondText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="150dp"
         android:gravity="center"
-        android:text="@string/bottom_sheet_content"
+        android:text="123"
         android:textColor="@android:color/white" />
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+
+        <!--android:gravity="center"-->
+        <!--android:contentDescription="NO"-->
+        <!--android:layout_height="150dp"-->
+        <!--android:src="@drawable/ic_add"-->
+        <!--/>-->
+    <TextView
+        android:id="@+id/thirdText"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@android:color/white" />
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+
+        <!--android:gravity="center"-->
+        <!--android:contentDescription="NO"-->
+        <!--android:layout_height="150dp"-->
+        <!--android:src="@drawable/ic_add"-->
+        <!--/>-->
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

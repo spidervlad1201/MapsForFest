@@ -6,19 +6,19 @@
     <item
         android:id="@+id/action_add"
         android:enabled="true"
-        android:icon="@drawable/ic_add"
-        android:title="Add"
+        android:icon="@drawable/ic_sixday"
+        android:title="6 октября"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/action_edit"
         android:enabled="true"
-        android:icon="@drawable/ic_edit"
-        android:title="Edit"
+        android:icon="@drawable/ic_seven"
+        android:title="7 октября"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/action_remove"
         android:enabled="true"
-        android:icon="@drawable/ic_remove"
-        android:title="Remove"
+        android:icon="@drawable/ic_eight"
+        android:title="8 октября"
         app:showAsAction="ifRoom"/>
 </menu>
