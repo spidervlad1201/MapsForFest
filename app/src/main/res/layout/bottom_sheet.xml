@@ -26,4 +26,5 @@
         android:gravity="center"
         android:text="@string/bottom_sheet_content"
         android:textColor="@android:color/white" />
+
 </LinearLayout>
