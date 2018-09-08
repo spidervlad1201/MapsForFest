@@ -3,6 +3,7 @@ package com.vakuor.mapsforfest;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -31,6 +32,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     Button btnActTwo;
     LinearLayout llBottomSheet;
     BottomSheetBehavior bottomSheetBehavior;
+    FloatingActionButton fab;
+    View viewBottomSheet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +46,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 //        btnActTwo = (Button) findViewById(R.id.btnActTwo);
 //        btnActTwo.setOnClickListener(this);
-        llBottomSheet = (LinearLayout) findViewById(R.id.bottom_sheet);
-        bottomSheetBehavior = BottomSheetBehavior.from(llBottomSheet);
+
+        fab = findViewById(R.id.fab);
+        viewBottomSheet = findViewById(R.id.bottom_sheet);
+
+        bottomSheetBehavior = BottomSheetBehavior.from(viewBottomSheet);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -52,15 +58,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.action_add:
-                        Toast.makeText(MapsActivity.this,"Action Add Call",Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(MapsActivity.this,"Action Add Call",Toast.LENGTH_SHORT).show();
                         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                         break;
                     case R.id.action_edit:
-                        Toast.makeText(MapsActivity.this,"Action Edit Call",Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(MapsActivity.this,"Action Edit Call",Toast.LENGTH_SHORT).show();
                         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                         break;
                     case R.id.action_remove:
-                        Toast.makeText(MapsActivity.this,"Action Remove Call",Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(MapsActivity.this,"Action Remove Call",Toast.LENGTH_SHORT).show();
+                        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+                        break;
+                    case R.id.action_remove:
+//                        Toast.makeText(MapsActivity.this,"Action Remove Call",Toast.LENGTH_SHORT).show();
                         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
                         break;
                 }
@@ -68,15 +78,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
+
+
         bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
-
+                if (BottomSheetBehavior.STATE_DRAGGING == newState) {
+                    fab.animate().scaleX(0).scaleY(0).setDuration(300).start();
+                } else if (BottomSheetBehavior.STATE_COLLAPSED == newState) {
+                    fab.animate().scaleX(1).scaleY(1).setDuration(300).start();
+                }
+//                Toast.makeText(MapsActivity.this,newState+" ",Toast.LENGTH_SHORT).show();
+                switch(newState){
+                    case BottomSheetBehavior.STATE_HIDDEN:{fab.setActivated(true); ;break;}
+                    case BottomSheetBehavior.STATE_COLLAPSED:{fab.setActivated(false);break;}
+                    case BottomSheetBehavior.STATE_EXPANDED:{fab.setActivated(false);break;}
+                    default: {break;}
+                }
+//                if(newState == 5)
+//                fab.setVisibility(View.VISIBLE);
+//                else fab.setVisibility(View.INVISIBLE);
             }
 
             @Override
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-
+//                fab.animate().scaleX(1 - slideOffset).scaleY(1 - slideOffset).setDuration(0).start();
             }
         });
 
