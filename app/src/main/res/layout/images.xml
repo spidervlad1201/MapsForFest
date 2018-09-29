@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="false">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/bottom_sheet_content"
+            app:srcCompat="@drawable/common_google_signin_btn_icon_dark_focused" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="32dp"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/common_google_play_services_enable_button"
+            app:srcCompat="@drawable/common_google_signin_btn_text_dark_normal_background"
+            tools:layout_editor_absoluteX="48dp" />
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

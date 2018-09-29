@@ -1,10 +1,12 @@
 package com.vakuor.mapsforfest;
 
+import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -30,6 +32,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, OnClickListener, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
@@ -42,6 +46,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Marker myMarker;
     TextView firstText;
     TextView secondText;
+    TextView thirdText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +62,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         fab = findViewById(R.id.fab);
         firstText = findViewById(R.id.firstText);
-        secondText = findViewById(R.id.secondText);
+    //    secondText = findViewById(R.id.secondText);
+        thirdText = findViewById(R.id.thirdText);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,21 +89,26 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     case R.id.action_add:{
                         mMap.clear();
                         setUpMark(-34, 151,"Marker in Sydney","Кошачьи бега");
-                        setUpMark(47.210583, 38.930604,"Александровская 56","");
+                        setUpMark(47.210583, 38.930604,"Александровская 56","«10.00 –18.00 " + " Назад в историю. Крымская война» - тематическая выставка «Как царь Петр море полюбил» - тематическая выставка ");
+                        setUpMark(47.211851,38.942633,"Площадка Античная с Греками ","10:00 –21:00 " + " Работа творческих площадок, показывающих истоки героизма защитников Таганрога в Крымскую войну: «Античная», «Путь Петра Великого», «Екатерининская», «Казачья», «Крымская война». Фотосессия с участниками реконструкции " + " 10:00 –21:00 " + " ");
                         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+
+                        Snackbar.make(mainView, "Here's a Snackbar "+mMap.getCameraPosition().zoom, Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                        System.out.println(mMap.getCameraPosition().zoom+" p "+mMap.getCameraPosition());
                         break;}
                     case R.id.action_edit:{
 
                         mMap.clear();
-                        setUpMark(47.216906,38.927864,"Греческая 105","");
-                        setUpMark(47.217518,38.812215,"Мариупольское Шоссе 54г","");
+                        setUpMark(47.216906,38.927864,"Греческая 105","10.00 –18.00 " + " «Крымская война на Азовском море: май – сентябрь 1855 года» (из фондов отдела дореволюционных и ценных изданий ЦГПБ имени А. П. Чехова) " + " ");
+                        setUpMark(47.217518,38.812215,"Мариупольское Шоссе 54г","12.00-13.00 "+" Финальный заезд мастеров конкура, посвященный защитникам Таганрога в годы Крымской войны в 1855 году ");
                         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
 
                         break;}
                     case R.id.action_remove:{
                         mMap.clear();
-                        setUpMark(47.208829,38.948705,"Место прибытия Петра Первого на фестиваль","Прибытие Петра I.Приветствие Петра I таганрожцам; Выступление «Барабанщиц»\n");
-                        setUpMark(47.213538,38.939457,"Оркестр","");
+                        setUpMark(47.208829,38.948705,"Место прибытия Петра Первого на фестиваль","11.15 – 11.30 Прибытие Петра I.Приветствие Петра I таганрожцам; Выступление «Барабанщиц» ");
+                        setUpMark(47.213538,38.939457,"Оркестр","1 Полонез   17 00 17 10 " + "2 Марш рим МК   17 10 17 17 " + "3 Вальс импровизация   17 20 17 30 " + "4 Полька тройка МК   17 30 17 40 " + "5 Катильон-Галоп МК   17 40 17 50 " + "6 Вальс импровизация   17 50 18 00 " + "7 Катильон с картами МК   18 00 18 10 " + "8 Катильон ж/д мост МК   18 10 18 20 " + "9 Вальс импровизация   18 20 18 30 ");
 
 
                         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
@@ -159,13 +170,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        setUpMark(-34, 151,"Marker in Sydney","Кошачьи бега");
-        setUpMark(47.210583, 38.930604,"Александровская 56","");
-        setUpMark(47.216906,38.927864,"Греческая 105","");
-        setUpMark(47.217518,38.812215,"Мариупольское Шоссе 54г","");
-        setUpMark(47.208829,38.948705,"Место прибытия Петра Первого на фестиваль","Прибытие Петра I.Приветствие Петра I таганрожцам; Выступление «Барабанщиц»\n");
-        setUpMark(47.213538,38.939457,"Оркестр","");
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
 
+        setUpMarks();
 
 
 //        LatLng geo1 = new LatLng(47.210583, 38.930604);
@@ -175,15 +192,30 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        LatLng geo3 = new LatLng(47.217518,38.812215);
 //        mMap.addMarker(new MarkerOptions().position(geo3).title("Мариупольское Шоссе 54г"));
         LatLng geo4 = new LatLng(47.208829,38.948705);
-//        mMap.addMarker(new MarkerOptions().position(geo4).title("Место прибытия Петра Первого на фестиваль\n"));
+//        mMap.addMarker(new MarkerOptions().position(geo4).title("Место прибытия Петра Первого на фестиваль "));
 //        LatLng geo5 = new LatLng(47.213538,38.939457);
 //        mMap.addMarker(new MarkerOptions().position(geo5).title("Оркестр"));
 
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(geo4));
-        mMap.animateCamera( CameraUpdateFactory.zoomTo( 17.0f ) );
+        mMap.animateCamera( CameraUpdateFactory.zoomTo( 12.0f ) );
 
 
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    public void setUpMarks(){
+
+        setUpMark(-34, 151,"Marker in Sydney","Кошачьи бега");
+        setUpMark(47.210583, 38.930604,"Александровская 56","«Назад в историю. Крымская война» - тематическая выставка «Как царь Петр море полюбил» - тематическая выставка ");
+        setUpMark(47.216906,38.927864,"Греческая 105","");
+        setUpMark(47.217518,38.812215,"Мариупольское Шоссе 54г","");
+        setUpMark(47.208829,38.948705,"Место прибытия Петра Первого на фестиваль","Прибытие Петра I.Приветствие Петра I таганрожцам; Выступление «Барабанщиц» ");
+        setUpMark(47.213538,38.939457,"Оркестр","");
     }
 
     @Override
@@ -216,7 +248,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         firstText.setText(marker.getTitle());
-        secondText.setText(marker.getSnippet());
+        thirdText.setText(marker.getSnippet());
 
 
         return true;
