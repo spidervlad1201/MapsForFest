@@ -34,7 +34,7 @@ import android.widget.Toast;
 
 
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, OnClickListener, GoogleMap.OnMarkerClickListener {
+public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, OnClickListener, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
     Button btnActTwo;
@@ -61,9 +61,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        btnActTwo.setOnClickListener(this);
 
         fab = findViewById(R.id.fab);
-        firstText = findViewById(R.id.firstText);
-    //    secondText = findViewById(R.id.secondText);
-        thirdText = findViewById(R.id.thirdText);
+        firstText = findViewById(R.id.markNameSheet);
+        secondText = findViewById(R.id.markTimeSheet);
+        thirdText = findViewById(R.id.markDescSheet);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

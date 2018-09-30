@@ -1,64 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bottom_sheet"
     android:layout_width="match_parent"
-    android:layout_height="340dp"
+    android:layout_height="match_parent"
     android:background="@android:color/darker_gray"
+    android:isScrollContainer="true"
+    android:minHeight="17dp"
     android:orientation="vertical"
+    android:overScrollMode="always"
     app:behavior_hideable="true"
     app:behavior_peekHeight="80dp"
-    app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+    app:layout_constraintHeight_min="1000dp">
 
     <TextView
-        android:id="@+id/firstText"
-       android:layout_width="match_parent"
-       android:layout_height="80dp"
-       android:background="@color/colorAccent"
-       android:gravity="center"
-       android:text="@string/bottom_sheet_peek"
-       android:textColor="@android:color/white" />
+        android:id="@+id/markNameSheet"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:overScrollMode="always"
+        android:text="@string/SampleName"
+        android:textColor="@android:color/white" />
     <!--<include layout="@layout/images" />-->
 
     <!--<TextView-->
-        <!--android:id="@+id/secondText"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="150dp"-->
-        <!--android:gravity="center"-->
-        <!--android:text="123"-->
-        <!--android:textColor="@android:color/white" />-->
+    <!--android:id="@+id/secondText"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="150dp"-->
+    <!--android:gravity="center"-->
+    <!--android:text="123"-->
+    <!--android:textColor="@android:color/white" />-->
     <!--<ImageView-->
-        <!--android:layout_width="match_parent"-->
+    <!--android:layout_width="match_parent"-->
 
-        <!--android:gravity="center"-->
-        <!--android:contentDescription="NO"-->
-        <!--android:layout_height="150dp"-->
-        <!--android:src="@drawable/ic_add"-->
-        <!--/>-->
-    <TextView
-        android:id="@+id/thirdText"
+    <!--android:gravity="center"-->
+    <!--android:contentDescription="NO"-->
+    <!--android:layout_height="150dp"-->
+    <!--android:src="@drawable/ic_add"-->
+    <!--/>-->
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:gravity="center"
-        android:text=""
-        android:textColor="@android:color/white" />
-    <!--<ImageView-->
-        <!--android:layout_width="match_parent"-->
+        android:layout_height="match_parent"
+        android:overScrollMode="always">
 
-        <!--android:gravity="center"-->
-        <!--android:contentDescription="NO"-->
-        <!--android:layout_height="150dp"-->
-        <!--android:src="@drawable/ic_add"-->
-        <!--/>-->
-    <!--<android.support.design.widget.FloatingActionButton-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="@dimen/activity_vertical_margin"-->
-        <!--android:src="@drawable/ic_backblackarrow"-->
-        <!--android:theme="@style/Widget.AppCompat.Light.ActionButton"-->
-        <!--app:layout_anchor="@+id/bottom_sheet"-->
-        <!--app:layout_anchorGravity="top|end"-->
-        <!--/>-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:isScrollContainer="true"
+            android:orientation="vertical"
+            android:overScrollMode="always">
+
+            <TextView
+                android:id="@+id/markTimeSheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/SampleName.time"
+                android:textColor="@android:color/white" />
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollSheet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutSheet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="140dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageViewSheet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/ic_image_200x200" />
+
+                    <ImageView
+                        android:id="@+id/imageViewSheet1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/ic_image_200x200" />
+
+                    <ImageView
+                        android:id="@+id/imageViewSheet3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/ic_image_200x200" />
+
+                    <ImageView
+                        android:id="@+id/imageViewSheet2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:adjustViewBounds="true"
+                        android:visibility="visible"
+                        app:srcCompat="@drawable/ic_image_200x200" />
+
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/markDescSheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:gravity="top|center"
+                android:overScrollMode="always"
+                android:paddingBottom="15dp"
+                android:paddingTop="15dp"
+                android:scrollHorizontally="false"
+                android:scrollbarAlwaysDrawVerticalTrack="false"
+                android:text="@string/large_text"
+                android:textColor="@android:color/white" />
+            <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+
+            <!--android:gravity="center"-->
+            <!--android:contentDescription="NO"-->
+            <!--android:layout_height="150dp"-->
+            <!--android:src="@drawable/ic_add"-->
+            <!--/>-->
+            <!--<android.support.design.widget.FloatingActionButton-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="@dimen/activity_vertical_margin"-->
+            <!--android:src="@drawable/ic_backblackarrow"-->
+            <!--android:theme="@style/Widget.AppCompat.Light.ActionButton"-->
+            <!--app:layout_anchor="@+id/bottom_sheet"-->
+            <!--app:layout_anchorGravity="top|end"-->
+            <!--/>-->
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+    >
 </LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="SampleName">Sample Name</string>
+    <string name="SampleName.time">Sample Time Is: 11:30-11:50</string>
+    <string name="SampleName.description">Sample Description Is: Bla-Bla-Bla</string>
+    <string name="SampleName2">Sample Name 2</string>
+    <string name="SampleName2.time">Sample Time2 Is: 11:30-11:50</string>
+    <string name="SampleName2.description">Sample Description Is: Bla-Bla-Bla</string>
+    <string name="SampleName3">Sample Name 3</string>
+    <string name="SampleName3.time">Sample Time3 Is: 11:30-11:50</string>
+    <string name="SampleName3.description">Sample Description Is: Bla-Bla-Bla</string>
+
+</resources>
